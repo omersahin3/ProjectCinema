@@ -1,0 +1,45 @@
+﻿@model List<ProjectCinema.Data.Models.Saloon>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h1 align="center">Saloon List</h1>
+<br />
+<table class="table table-bordered">
+    <tr align="center">
+        <th>ID</th>
+        <th>Saloon</th>
+        <th>Line ArmChair Number</th>
+        <th>Column ArmChair Number</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr align="center">
+            <td>@x.SaloonID</td>
+            <td>@x.SaloonName</td>
+            <td>@x.LineArmChairNumber</td>
+            <td>@x.ColumnArmChairNumber</td>
+            <td><a href="/Saloon/RemoveSaloon/@x.SaloonID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Saloon/GetSaloon/@x.SaloonID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Saloon/AddSaloon/" class="btn btn-primary">New Saloon</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

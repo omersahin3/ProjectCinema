@@ -1,0 +1,43 @@
+﻿@model ProjectCinema.Data.Models.MovieCategory
+@{
+    ViewData["Title"] = "GetMovieCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Movie Update Page</h1>
+<br />
+@using (Html.BeginForm("UpdateMovieCategory", "MovieCategory", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.MovieCategoryID)
+    @Html.TextBoxFor(x => x.MovieCategoryID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Movie.MovieName)
+    @Html.TextBoxFor(x => x.Movie.MovieName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Category)
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control " })
+    <br />
+    @Html.LabelFor(x => x.Movie.Time)
+    @Html.TextBoxFor(x => x.Movie.MovieName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Movie.Description)
+    @Html.TextBoxFor(x => x.Movie.Description, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Movie.ImageURL)
+    @Html.TextBoxFor(x => x.Movie.ImageURL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Movie.Director)
+    @Html.TextBoxFor(x => x.Movie.Director, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Movie.StudentPrice)
+    @Html.TextBoxFor(x => x.Movie.StudentPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Movie.CivilPrice)
+    @Html.TextBoxFor(x => x.Movie.CivilPrice, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">SAVE</button>
+}
+@*<input type="checkbox" value="1" />Aksiyon
+    <input type="checkbox" value="2" />Animasyon
+    <input type="checkbox" value="3" />Macera*@
+

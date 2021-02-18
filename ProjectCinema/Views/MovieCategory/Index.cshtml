@@ -1,0 +1,50 @@
+﻿@model List<ProjectCinema.Data.Models.MovieCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h1 align="center">Movie List</h1>
+<br />
+<table class="table table-bordered">
+    <tr align="center">
+        <th>ID</th>
+        <th>Movie</th>
+        <th>Category</th>
+        <th>Time</th>
+        <th>Director</th>
+        <th>Student Price</th>
+        <th>Civil Price</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr align="center">
+            <td>@x.MovieCategoryID</td>
+            <td>@x.Movie.MovieName</td>
+            <td>@x.Category.CategoryName</td>
+            <td>@x.Movie.Time</td>
+            <td>@x.Movie.Director</td>
+            <td>@x.Movie.StudentPrice</td>
+            <td>@x.Movie.CivilPrice</td>
+            <td><a href="/MovieCategory/RemoveMovieCategory/@x.MovieCategoryID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/MovieCategory/GetMovieCategory/@x.MovieCategoryID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/MovieCategory/AddMovieCategory/" class="btn btn-primary">New Movie</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

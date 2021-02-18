@@ -1,0 +1,21 @@
+﻿@model ProjectCinema.Data.Models.Session
+@{
+    ViewData["Title"] = "AddSession";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddSession", "Session", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Time)
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Saloon)
+    @Html.DropDownListFor(x => x.SaloonID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control " })
+    <br />
+    @Html.LabelFor(x => x.Movie)
+    @Html.DropDownListFor(x => x.MovieID, (List<SelectListItem>)ViewBag.v2, new { @class = "form-control " })
+    //@Html.DropDownList("Mov", "Lütfen bir öğrenci seçiniz...")
+    <br />
+    <button class="btn btn-info">SAVE</button>
+}
+

@@ -1,0 +1,22 @@
+﻿@model ProjectCinema.Data.Models.Session
+@{
+    ViewData["Title"] = "GetSession";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("UpdateSession", "Session", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.SessionID)
+    @Html.TextBoxFor(x => x.SessionID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Time)
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Saloon)
+    @Html.DropDownListFor(x => x.SaloonID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control " })
+    <br />
+    @Html.LabelFor(x => x.Movie)
+    @Html.DropDownListFor(x => x.MovieID, (List<SelectListItem>)ViewBag.v2, new { @class = "form-control " })
+    <br />
+    <button class="btn btn-info">Update</button>
+}
+

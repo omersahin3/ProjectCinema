@@ -1,0 +1,19 @@
+﻿@model ProjectCinema.Data.Models.Saloon
+@{
+    ViewData["Title"] = "AddSaloon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddSaloon", "Saloon", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.SaloonName)
+    @Html.TextBoxFor(x => x.SaloonName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.LineArmChairNumber)
+    @Html.TextBoxFor(x => x.LineArmChairNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ColumnArmChairNumber)
+    @Html.TextBoxFor(x => x.ColumnArmChairNumber, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">SAVE</button>
+}

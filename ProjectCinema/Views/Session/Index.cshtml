@@ -1,0 +1,47 @@
+﻿  @model List<ProjectCinema.Data.Models.Session>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h1 align="center">Session List</h1>
+<br />
+<table class="table table-bordered">
+    <tr align="center">
+        <th>ID</th>
+        <th>Session</th>
+        <th>Saloon</th>
+        <th>Movie</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr align="center">
+            <td>@x.SessionID</td>
+            <td>@x.Time</td>
+            <td>@x.Saloon.SaloonName</td>
+            <td>@x.Movie.MovieName</td>
+            <td><a href="/Session/RemoveSession/@x.SessionID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Session/GetSession/@x.SessionID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Session/AddSession/" class="btn btn-primary">New Session</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

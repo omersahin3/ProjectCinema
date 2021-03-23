@@ -1,0 +1,18 @@
+﻿@model ProjectCinema.Data.Models.Ticket
+@{
+    ViewData["Title"] = "GetTicket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateTicket", "Ticket", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.TicketID)
+    @Html.TextBoxFor(x => x.TicketID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Session)
+    @Html.DropDownListFor(x => x.SessionID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control " })
+    <br />
+    <button class="btn btn-info">Update</button>
+}
+
+

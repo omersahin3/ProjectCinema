@@ -1,0 +1,28 @@
+﻿@model List<ProjectCinema.Data.Models.Button>
+@{
+    ViewData["Title"] = "GetSaloon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>GetSaloon</h1>
+@using (Html.BeginForm("HandleButtonClick", "ButtonClick"))
+{
+    int sayac = 0;
+    @for (int i = 0; i < 5; i++)
+    {
+        @for (int j = 1; j <= 5; j++)
+        {
+            <button type="submit" name="mine" value=@sayac>
+                @if (Model[sayac].State == true)
+                {
+                    <img src="~/Images/on.png" />
+                }
+                else
+                {
+                    <img src="~/Images/off.png" />
+                }
+            </button>
+            sayac++;
+        }
+        <br />
+    }
+}

@@ -11,6 +11,10 @@ namespace ProjectCinema.Repositories
     public class GenericRepository<T> where T : class, new()
     {
         Context c = new Context();
+        //public GenericRepository(Context context)
+        //{
+        //    this.c = context;
+        //}
         public void TAdd(T p)
         {
             c.Set<T>().Add(p);

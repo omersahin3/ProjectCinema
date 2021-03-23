@@ -18,5 +18,14 @@ namespace ProjectCinema.Data.Models
         public DbSet<MovieCategory> MovieCategory { get; set; }
         public DbSet<Saloon> Saloons { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Chair> Chairs { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Ticket>()
+                .HasOne(b => b.Chair)
+                .WithMany(a => a.Ticket)
+                .OnDelete(DeleteBehavior.NoAction);
+        }// Db içerisi dolu olduğundan fk boş olamaz ondan dolayı bunu ekliyoruz null olabilir.
     }
 }

@@ -8,5 +8,10 @@ namespace ProjectCinema.Repositories
 {
     public class MovieCategoryRepository : GenericRepository<MovieCategory>
     {
+        //Context c = new Context();
+        //public MovieCategoryRepository(Context context)
+        //{
+        //    this.c = context;
+        //}
     }
 }

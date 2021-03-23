@@ -15,6 +15,7 @@
         <th>Column ArmChair Number</th>
         <th>Delete</th>
         <th>Update</th>
+        <th>Show Saloon</th>
     </tr>
     @foreach (var x in Model)
     {
@@ -25,6 +26,7 @@
             <td>@x.ColumnArmChairNumber</td>
             <td><a href="/Saloon/RemoveSaloon/@x.SaloonID" class="btn btn-danger">Delete</a></td>
             <td><a href="/Saloon/GetSaloon/@x.SaloonID" class="btn btn-success">Update</a></td>
+            <td><a href="/ButtonClick/GetSaloon3/@x.SaloonID" class="btn btn-success">Show Saloon</a></td>
         </tr>
     }
 

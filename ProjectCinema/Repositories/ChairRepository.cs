@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectCinema.Repositories
 {
-    public class SaloonRepository : GenericRepository<Saloon>
+    public class ChairRepository : GenericRepository<Chair>
     {
-        
     }
 }

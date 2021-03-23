@@ -15,5 +15,6 @@ namespace ProjectCinema.Data.Models
         public int LineArmChairNumber { get; set; }
         public int ColumnArmChairNumber { get; set; }
         public List<Session> Session { get; set; }
+        public List<Chair> Chair { get; set; }
     }
 }

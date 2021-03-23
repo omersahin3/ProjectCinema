@@ -22,7 +22,6 @@ namespace ProjectCinema.Data.Models
         public string Director { get; set; }
         public double StudentPrice { get; set; }
         public double CivilPrice { get; set; }
-
         public List<MovieCategory> MovieCategory { get; set; } // Receiver
         public List<Session> Session { get; set; }
     }

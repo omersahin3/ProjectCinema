@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectCinema.Data.Models;
 
 namespace ProjectCinema.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210227140708_chair")]
+    partial class chair
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace ProjectCinema.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("SaloonID")
+                    b.Property<int?>("SaloonID")
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
@@ -163,35 +165,11 @@ namespace ProjectCinema.Migrations
                     b.ToTable("Sessions");
                 });
 
-            modelBuilder.Entity("ProjectCinema.Data.Models.Ticket", b =>
-                {
-                    b.Property<int>("TicketID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ChairID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SessionID")
-                        .HasColumnType("int");
-
-                    b.HasKey("TicketID");
-
-                    b.HasIndex("ChairID");
-
-                    b.HasIndex("SessionID");
-
-                    b.ToTable("Tickets");
-                });
-
             modelBuilder.Entity("ProjectCinema.Data.Models.Chair", b =>
                 {
                     b.HasOne("ProjectCinema.Data.Models.Saloon", "Saloon")
-                        .WithMany("Chair")
-                        .HasForeignKey("SaloonID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("SaloonID");
 
                     b.Navigation("Saloon");
                 });
@@ -234,32 +212,9 @@ namespace ProjectCinema.Migrations
                     b.Navigation("Saloon");
                 });
 
-            modelBuilder.Entity("ProjectCinema.Data.Models.Ticket", b =>
-                {
-                    b.HasOne("ProjectCinema.Data.Models.Chair", "Chair")
-                        .WithMany("Ticket")
-                        .HasForeignKey("ChairID")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("ProjectCinema.Data.Models.Session", "Session")
-                        .WithMany("Ticket")
-                        .HasForeignKey("SessionID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Chair");
-
-                    b.Navigation("Session");
-                });
-
             modelBuilder.Entity("ProjectCinema.Data.Models.Category", b =>
                 {
                     b.Navigation("MovieCategory");
-                });
-
-            modelBuilder.Entity("ProjectCinema.Data.Models.Chair", b =>
-                {
-                    b.Navigation("Ticket");
                 });
 
             modelBuilder.Entity("ProjectCinema.Data.Models.Movie", b =>
@@ -271,14 +226,7 @@ namespace ProjectCinema.Migrations
 
             modelBuilder.Entity("ProjectCinema.Data.Models.Saloon", b =>
                 {
-                    b.Navigation("Chair");
-
                     b.Navigation("Session");
-                });
-
-            modelBuilder.Entity("ProjectCinema.Data.Models.Session", b =>
-                {
-                    b.Navigation("Ticket");
                 });
 #pragma warning restore 612, 618
         }

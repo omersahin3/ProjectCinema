@@ -33,7 +33,7 @@ namespace ProjectCinema
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Category}/{action=Index}/{id?}"
+                    template: "{controller=Default}/{action=Index}/{id?}"
                     );
             });
         }

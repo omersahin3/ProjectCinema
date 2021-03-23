@@ -1,0 +1,44 @@
+﻿@model List<ProjectCinema.Data.Models.Saloon>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+@foreach (var x in Model)
+{
+    int sayac = 1;
+    <br />
+    <tr align="center">
+        <td>@x.LineArmChairNumber</td>
+        <td>@x.ColumnArmChairNumber</td>
+    </tr>
+    <br />
+
+
+    @for (int i = 0; i < x.LineArmChairNumber; i++)
+    {
+        @for (int j = 1; j <= x.ColumnArmChairNumber; j++)
+        {
+            
+            <button type="submit" name="button" value=@sayac> <img src="~/Images/off.png" /></button>
+            sayac++;
+        }
+        <br />
+    }
+
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

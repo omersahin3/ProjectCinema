@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProjectCinema.Data.Models
 {
-    public class Session
+    public class Chair
     {
         [Key]
-        public int SessionID { get; set; }
-        [StringLength(20)]
-        public string Time { get; set; }
+        public int ChairID { get; set; }
+        public Boolean Status { get; set; }
         public int SaloonID { get; set; }
-        public int MovieID { get; set; }
-        public virtual Movie Movie { get; set; }
         public virtual Saloon Saloon { get; set; }
         public List<Ticket> Ticket { get; set; }
 

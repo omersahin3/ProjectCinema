@@ -1,0 +1,44 @@
+﻿@model List<ProjectCinema.Data.Models.Chair>
+@{
+    ViewData["Title"] = "GetSaloon3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    int satir = ViewBag.c1;
+    int sutun = ViewBag.c2;
+    int chair = ViewBag.v1;
+    int sayac = 0;
+    var SaloonID = (Model[0].SaloonID).ToString();
+    var SessionID = ViewBag.v2;
+    <div id ="Test"class="@SessionID"></div>
+    <h1>Saloon @SaloonID</h1>
+    <div class="response"></div>
+    @for (int i = 0; i < satir; i++)
+    {
+        @for (int j = 1; j <= sutun; j++)
+        {
+            <button type="submit" class="chairButton2 @(Model[sayac].Status == true ? "tChair" : "fChair")" name="mine" value=@chair>
+                @if (Model[sayac].Status == true)
+                {
+                    <img src="~/Images/on.png" />
+                }
+                else
+                {
+                    <img src="~/Images/off.png" />
+                }
+            </button>
+            chair++;
+            sayac++;
+        }
+        <br />
+    }
+}
+
+
+
+
+
+

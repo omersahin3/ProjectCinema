@@ -1,0 +1,51 @@
+﻿@model List<ProjectCinema.Data.Models.Ticket>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h1 align="center">Ticket List</h1>
+<br />
+<table class="table table-bordered">
+    <tr align="center">
+        <th>ID</th>
+        <th>Session</th>
+        <th>Saloon</th>
+        <th>Movie</th>
+        <th>Chair</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Show Saloon</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr align="center">
+    <td>@x.TicketID</td>
+    <td>@x.Session.Time</td>
+    <td>@x.Session.SaloonID</td>
+    <td>@x.Session.MovieID</td>
+    <td>@x.ChairID</td>
+    <td><a href="/Ticket/RemoveTicket/@x.TicketID" class="btn btn-danger">Delete</a></td>
+    <td><a href="/Ticket/GetTicket/@x.TicketID" class="btn btn-success">Update</a></td>
+    <td><a href="/Ticket/GetSaloon/@x.ChairID" class="btn btn-success">Show Saloon</a></td>
+</tr>
+    }
+
+</table>
+<a href="/Ticket/AddTicket2/" class="btn btn-primary">New Ticket</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
